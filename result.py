@@ -53,5 +53,5 @@ def result(filename: str ="static/uploads/uploaded_image.png"):
     prediction = model.predict(img)
     return class_names[ np.argmax(prediction)]
 
-if __name__ == "__main_":
+if __name__:
     print(f"Prediction is: {result(filename="static/uploads/uploaded_image.png")}")
