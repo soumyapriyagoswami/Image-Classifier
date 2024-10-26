@@ -3,7 +3,7 @@ import cv2 as cv
 import matplotlib.pyplot as plt
 from tensorflow.keras import datasets, models
 
-def result(filename="static/uploads/uploaded_image.png" -> str):
+def result(filename: str ="static/uploads/uploaded_image.png"):
     # Load CIFAR-10 dataset
     (training_images, training_labels), (
         testing_images,
