@@ -1,6 +1,6 @@
 import pytest
 from result import result
-from app import preprocess
+from app import preprocess_image
 import cv
 
 def preprocess_image_height():
