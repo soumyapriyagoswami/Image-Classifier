@@ -7,10 +7,21 @@ from tensorflow.keras import models
 app = Flask(__name__)
 
 # Load the pre-trained model
-model = models.load_model('image_classifier.h5')
+model = models.load_model("image_classifier.h5")
 
 # Class names for CIFAR-10
-class_names = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+class_names = [
+    "plane",
+    "car",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck",
+]
 
 
 def preprocess_image(img_path):
@@ -21,16 +32,16 @@ def preprocess_image(img_path):
     return img
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == 'POST':
+    if request.method == "POST":
         # Handle the uploaded image
-        file = request.files['file']
+        file = request.files["file"]
         if file:
             # Save the uploaded image
-            if not os.path.exists('static/uploads'):
-                os.makedirs('static/uploads')
-            img_path = 'static/uploads/uploaded_image.png'
+            if not os.path.exists("static/uploads"):
+                os.makedirs("static/uploads")
+            img_path = "static/uploads/uploaded_image.png"
             file.save(img_path)
 
             # Preprocess the image
@@ -41,10 +52,10 @@ def index():
             index = np.argmax(prediction)
             result = class_names[index]
 
-            return render_template('index.html', result=result, image_path=img_path)
+            return render_template("index.html", result=result, image_path=img_path)
 
-    return render_template('index.html', result=None, image_path=None)
+    return render_template("index.html", result=None, image_path=None)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
