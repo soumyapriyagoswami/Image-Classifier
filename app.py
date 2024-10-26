@@ -28,9 +28,9 @@ def index():
         file = request.files['file']
         if file:
             # Save the uploaded image
-            if not os.path.exists('uploads'):
-                os.makedirs('uploads')
-            img_path = 'uploads/uploaded_image.png'
+            if not os.path.exists('static/uploads'):
+                os.makedirs('static/uploads')
+            img_path = 'static/uploads/uploaded_image.png'
             file.save(img_path)
 
             # Preprocess the image
