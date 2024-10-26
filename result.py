@@ -28,7 +28,7 @@ model = models.load_model('image_classifier.h5')
 
 # Load and preprocess the image to make a prediction
 
-img = cv.imread("car.png")
+img = cv.imread("static/uploads/uploaded_image.png")
 
 img = cv.resize(img, (32, 32))  # Resize the image to match CIFAR-10 image size
 img = img / 255.00  # Normalize the pixel values to be between 0 and 1
