@@ -43,6 +43,6 @@ def dynamic_result_test():
         "test_img/truck0" : class_names[9],
         "test_img/truck1" : class_names[9]
     }
-    for (key, value in image_path_dict.items()):
+    for key, value in image_path_dict.items():
         result = result(key)
         assert result == value
