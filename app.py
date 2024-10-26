@@ -6,7 +6,7 @@ from tensorflow.keras import models
 app = Flask(__name__)
 
 # Load the pre-trained model
-model = models.load_model('image_classifier.model')
+model = models.load_model('image_classifier.h5')
 
 # Class names for CIFAR-10
 class_names = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
