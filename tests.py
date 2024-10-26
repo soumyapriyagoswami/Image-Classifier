@@ -1,7 +1,6 @@
 import pytest
 from result import result
 from app import preprocess_image
-import cv
 
 def preprocess_image_height():
     result = preprocess_image("test_img/plane0.png")
