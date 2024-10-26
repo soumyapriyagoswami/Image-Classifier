@@ -1,6 +1,5 @@
 import pytest
 import result.py
-import "model creation.py"
 import app.py
 import cv
 
