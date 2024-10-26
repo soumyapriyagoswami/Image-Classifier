@@ -4,19 +4,19 @@ import app.py
 import cv
 
 def preprocess_image_height():
-    result = preprocess_image(img_path)
+    result = preprocess_image("test_img/plane0")
     assert result.shape[0] == 32
     
 def preprocess_image_width():
-    result = preprocess_image(img_path)
+    result = preprocess_image("test_img/plane0")
     assert result.shape[1] == 32
 
 def preprocess_image_return_type():
-    result = preprocess_image(img_path)
+    result = preprocess_image("test_img/plane0")
     assert type(result) is uint8
     
 def result_return_type():
-    result = result(img_path)
+    result = result("test_img/plane0")
     assert type(result) is uint8
 
 def dynamic_result_test():
