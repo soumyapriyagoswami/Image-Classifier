@@ -26,6 +26,7 @@ def result(filename: str ="static/uploads/uploaded_image.png"):
     ]
     
     # Display some sample images from the dataset
+    '''
     for i in range(16):
         plt.subplot(4, 4, i + 1)
         plt.xticks([])
@@ -33,6 +34,7 @@ def result(filename: str ="static/uploads/uploaded_image.png"):
         plt.imshow(training_images[i], cmap=plt.cm.binary)
         plt.xlabel(class_names[training_labels[i][0]])
     plt.show()
+    '''
     
     # Constructing neural net
     
