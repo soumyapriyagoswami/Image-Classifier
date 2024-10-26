@@ -1,0 +1,5 @@
+# ignore static folder
+static
+
+#ignore
+image_classifier.file
