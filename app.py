@@ -1,3 +1,5 @@
+"""Image Classification application trained on a CNN model that can be accessed from a browser"""
+
 from flask import Flask, render_template, request
 import os
 import numpy as np
@@ -25,6 +27,7 @@ class_names = [
 
 
 def preprocess_image(img_path):
+    """Adjusts the image to a standard format so that it can be read by the model"""
     img = cv.imread(img_path)
     img = cv.resize(img, (32, 32))
     img = img / 255.0
@@ -34,6 +37,7 @@ def preprocess_image(img_path):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    """RESTful application that serves as a GUI for a user to check images to the trained model"""
     if request.method == "POST":
         # Handle the uploaded image
         file = request.files["file"]
