@@ -6,7 +6,7 @@ from result import result
 from app import preprocess_image
 
 """
-This test case handles loading an image and checking if the new height is equal to the expected value.
+This test case handles loading an image, checking if the new height is equal
 """
 def preprocess_image_height():
     result = preprocess_image("test_img/plane0.png")
