@@ -27,8 +27,8 @@ class_names = [
 
 def preprocess_image(img_path):
     """Adjusts the image to a standard format so that it can be read by the model"""
-    img = cv.imread(img_path)
-    img = cv.resize(img, (32, 32))
+    img = cv.imread(img_path) # pylint: disable=no-member
+    img = cv.resize(img, (32, 32)) # pylint: disable=no-member
     img = img / 255.0
     img = img[None, :]
     return img
