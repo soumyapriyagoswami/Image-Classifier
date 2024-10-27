@@ -35,7 +35,7 @@ for i in range(16):
     plt.yticks([])
     plt.imshow(training_images[i], cmap=plt.cm.binary) # pylint: disable=no-member
     plt.xlabel(class_names[training_labels[i][0]])
-plt.show() 
+plt.show()
 
 # Select a subset of the dataset for training and testing
 training_images = training_images[:20000]
