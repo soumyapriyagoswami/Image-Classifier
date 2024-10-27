@@ -2,8 +2,6 @@
 This module handles creating and training the model.
 """
 # Import necessary libraries
-import numpy as np
-import cv2 as cv
 import matplotlib.pyplot as plt
 from keras import datasets, layers, models
 
@@ -37,7 +35,7 @@ for i in range(16):
     plt.yticks([])
     plt.imshow(training_images[i], cmap=plt.cm.binary)
     plt.xlabel(class_names[training_labels[i][0]])
-plt.show()
+plt.show() # pylint: disable=no-member
 
 # Select a subset of the dataset for training and testing
 training_images = training_images[:20000]
