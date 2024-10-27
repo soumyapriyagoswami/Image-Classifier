@@ -1,3 +1,6 @@
+"""
+This module handles creating and training the model.
+"""
 # Import necessary libraries
 import numpy as np
 import cv2 as cv
