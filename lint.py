@@ -1,3 +1,6 @@
+"""
+This module handles the lint functionality and ensuring higher code standard
+"""
 # lint.py
 import sys
 from pylint import lint
