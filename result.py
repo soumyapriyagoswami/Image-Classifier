@@ -8,10 +8,11 @@ from keras import datasets, models
 
 def result(filename: str ="static/uploads/uploaded_image.png") -> str:
     """
-    This function handles the grabbing of the preprocessed data and spits out a predictions. Hawk Tuah.
+    This function handles the grabbing of the preprocessed data and spits out a predictions.
     """
     # Load CIFAR-10 dataset
-    (training_images, training_labels), (testing_images,testing_labels,) = datasets.cifar10.load_data()
+    (training_images, training_labels), 
+    (testing_images,testing_labels,) = datasets.cifar10.load_data()
     training_images, testing_images = training_images / 255, testing_images / 255
     # Class names for CIFAR-10
     class_names = ["plane","car","bird","cat","deer","dog","frog","horse","ship","truck"]
