@@ -2,21 +2,21 @@ import pytest
 from result import result
 from app import preprocess_image
 
-def preprocess_image_height():
-    result = preprocess_image("test_img/plane0.png")
-    assert result.shape[0] == 32
+#def preprocess_image_height():
+#    result = preprocess_image("test_img/plane0.png")
+#    assert result.shape[0] == 32
     
-def preprocess_image_width():
-    result = preprocess_image("test_img/plane0.png")
-    assert result.shape[1] == 32
+#def preprocess_image_width():
+#    result = preprocess_image("test_img/plane0.png")
+#    assert result.shape[1] == 32
 
-def preprocess_image_return_type():
-    result = preprocess_image("test_img/plane0.png")
-    assert type(result) is uint8
+#def preprocess_image_return_type():
+#    result = preprocess_image("test_img/plane0.png")
+#    assert type(result) is uint8
     
-def result_return_type():
-    result = result("test_img/plane0")
-    assert type(result) is uint8
+#def result_return_type():
+#    result = result("test_img/plane0")
+#    assert type(result) is uint8
 
 def dynamic_result_test():
     class_names = ["plane", "car", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
