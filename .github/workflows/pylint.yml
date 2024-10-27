@@ -23,7 +23,7 @@ jobs:
         pylint $(git ls-files '*.py')
     - name: Test with pytest  
       run: |  
-        coverage run -m pytest  -v -s  
+        pytest tests.py -v -s
     - name: Generate Coverage Report  
       run: |  
         coverage report -m
