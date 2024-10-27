@@ -2,7 +2,7 @@
 import numpy as np
 import cv2 as cv
 import matplotlib.pyplot as plt
-from tensorflow.keras import datasets, layers, models
+from keras import datasets, layers, models
 
 # Load CIFAR-10 dataset
 (training_images, training_labels), (
