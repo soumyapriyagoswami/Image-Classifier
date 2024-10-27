@@ -3,9 +3,9 @@ import result
 #from result import result
 from app import preprocess_image
 
-#def preprocess_image_height():
-#    result = preprocess_image("test_img/plane0.png")
-#    assert result.shape[0] == 32
+def preprocess_image_height():
+    result = preprocess_image("test_img/plane0.png")
+    assert result.shape[0] == 32
     
 #def preprocess_image_width():
 #    result = preprocess_image("test_img/plane0.png")
