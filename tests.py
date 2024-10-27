@@ -1,23 +1,41 @@
+"""
+This module handles the testing of the functionality of the system.
+"""
 import pytest
 from result import result
 from app import preprocess_image
 
+"""
+This test case handles loading an image and checking if the new height is equal to the expected value.
+"""
 def preprocess_image_height():
     result = preprocess_image("test_img/plane0.png")
     assert result.shape[0] == 32
-    
+
+"""
+This test case handles loading an image and checking if the new width is equal to the expected value.
+"""
 def preprocess_image_width():
     result = preprocess_image("test_img/plane0.png")
     assert result.shape[1] == 32
 
+"""
+This test case handles loading an image and checking the return type.
+"""
 def preprocess_image_return_type():
     result = preprocess_image("test_img/plane0.png")
     assert type(result) is uint8
     
+"""
+This test case handles entire functionality of result and checks the return type
+"""
 def result_return_type():
     result = result("test_img/plane0")
     assert type(result) is uint8
 
+"""
+This test case is a dynamic test, testing two of each image to ensure the model is trained and predicting correctly
+"""
 def dynamic_result_test():
     class_names = ["plane", "car", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
     image_path_dict = {
