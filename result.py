@@ -1,7 +1,7 @@
 import numpy as np
 import cv2 as cv
 import matplotlib.pyplot as plt
-from tensorflow.keras import datasets, models
+from keras import datasets, models
 
 def result(filename: str ="static/uploads/uploaded_image.png"):
     # Load CIFAR-10 dataset
