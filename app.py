@@ -1,7 +1,6 @@
 """Image Classification application trained on a CNN model that can be accessed from a browser"""
-
-from flask import Flask, render_template, request
 import os
+from flask import Flask, render_template, request
 import numpy as np
 import cv2 as cv
 from keras import models
@@ -47,17 +46,12 @@ def index():
                 os.makedirs("static/uploads")
             img_path = "static/uploads/uploaded_image.png"
             file.save(img_path)
-
             # Preprocess the image
             img = preprocess_image(img_path)
-
             # Make a prediction
             prediction = model.predict(img)
-            index = np.argmax(prediction)
-            result = class_names[index]
-
+            result = class_names[np.argmax(prediction)]
             return render_template("index.html", result=result, image_path=img_path)
-
     return render_template("index.html", result=None, image_path=None)
 
 
