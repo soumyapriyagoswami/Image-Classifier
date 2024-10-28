@@ -21,7 +21,7 @@ def test_preprocess_image_return_type():
 
 def test_result_return_type():
     """This test case handles entire functionality of result and checks the return type"""
-    assert result("static/test_img/plane0") is not None
+    assert result("static/test_img/plane0.png") is not None
 
 def test_dynamic_result_test():
     """This test case is a dynamic test
