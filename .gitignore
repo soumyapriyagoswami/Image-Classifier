@@ -1,6 +1,3 @@
-#ignore
-image_classifier.file
-
 ## ignores all folders named uploads, and all files and folders folders named uploads
 **/uploads
 .vs/**
