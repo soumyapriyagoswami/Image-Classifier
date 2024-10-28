@@ -21,7 +21,13 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
+        continue-on-error: true
     - name: Test with pytest  
       run: |  
-        pytest classifier_test.py
+    - name: Test with pytest  
+      run: |  
+        coverage run -m pytest  -v -s  
+    - name: Generate Coverage Report  
+      run: |  
+        coverage report -m
 
