@@ -2,6 +2,10 @@
 import numpy as np
 from result import result
 from app import preprocess_image
+import warnings
+
+# Suppress specific warning
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 def preprocess_image_height():
     """This test case handles loading an image, checking if the new height is equal"""
