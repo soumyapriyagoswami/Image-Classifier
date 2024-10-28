@@ -1,6 +1,5 @@
 """This module handles the testing of the functionality of the system."""
 import warnings
-import numpy as np
 from result import result
 from app import preprocess_image
 
@@ -47,5 +46,5 @@ def test_dynamic_result_test():
         "static/test_img/truck0.png" : class_names[9],
         "static/test_img/truck1.png" : class_names[9]
     }
-    for key, value in image_path_dict.items():
-        assert isinstance(result(key), str) 
+    for key, _value in image_path_dict.items():
+        assert isinstance(result(key), str)
