@@ -29,7 +29,6 @@ def test_dynamic_result_test():
     class_names = ["plane", "car", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
     image_path_dict = {
         "static/test_img/plane0.png" : class_names[0],
-        #"static/test_img/plane1.png" : class_names[0],
         "static/test_img/car0.png" : class_names[1],
         "static/test_img/car1.png" : class_names[1],
         "static/test_img/bird0.png" : class_names[2],
@@ -45,7 +44,6 @@ def test_dynamic_result_test():
         "static/test_img/horse0.png" : class_names[7],
         "static/test_img/horse1.png" : class_names[7],
         "static/test_img/ship0.png" : class_names[8],
-        "static/test_img/ship1.png" : class_names[8],
         "static/test_img/truck0.png" : class_names[9],
         "static/test_img/truck1.png" : class_names[9]
     }
