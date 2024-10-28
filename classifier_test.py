@@ -50,4 +50,4 @@ def test_dynamic_result_test():
         "static/test_img/truck1.png" : class_names[9]
     }
     for key, value in image_path_dict.items():
-        assert result(key) is str
+        assert isinstance(result(key), str) 
