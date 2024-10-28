@@ -27,7 +27,7 @@ jobs:
         python model_creation.py
     - name: Test with pytest  
       run: |  
-        pytest classifier_test.py
+        coverage run -m pytest  -v -s
     - name: Generate Coverage Report
       run: |  
         coverage report -m
