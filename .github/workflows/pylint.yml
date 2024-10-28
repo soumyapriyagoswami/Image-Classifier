@@ -21,7 +21,7 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
-        continue-on-error: true
+      continue-on-error: true
     - name: Test with pytest  
       run: |  
         coverage run -m pytest tests -v -rs  # Explicitly run tests in the 'tests' directory
