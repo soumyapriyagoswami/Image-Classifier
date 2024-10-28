@@ -25,7 +25,6 @@ jobs:
     - name: Test with pytest  
       run: |  
         pytest classifier_test.py
-        # coverage run -m pytest classifier_test.py -v -rs  # Explicitly run tests in the 'tests' directory
     - name: Generate Coverage Report
       run: |  
         coverage report -m
