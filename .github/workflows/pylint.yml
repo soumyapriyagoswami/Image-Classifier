@@ -24,7 +24,7 @@ jobs:
       continue-on-error: true
     - name: Test with pytest  
       run: |  
-        coverage run -m pytest classifier_test -v -rs  # Explicitly run tests in the 'tests' directory
+        coverage run -m pytest classifier_test.py -v -rs  # Explicitly run tests in the 'tests' directory
     - name: Generate Coverage Report
       run: |  
         coverage report -m
