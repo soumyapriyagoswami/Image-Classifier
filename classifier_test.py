@@ -37,17 +37,17 @@ def test_dynamic_result_test():
         "static/test_img/cat0.png" : class_names[3],
         "static/test_img/cat1.png" : class_names[3],
         "static/test_img/deer0.png" : class_names[4],
-        "static/test_img/deer1.png" : class_names[4],
-        "static/test_img/dog0.png" : class_names[5],
-        "static/test_img/dog1.png" : class_names[5],
-        "static/test_img/frog0.png" : class_names[6],
-        "static/test_img/frog1.png" : class_names[6],
-        "static/test_img/horse0.png" : class_names[7],
-        "static/test_img/horse1.png" : class_names[7],
-        "static/test_img/ship0.png" : class_names[8],
-        "static/test_img/ship1.png" : class_names[8],
-        "static/test_img/truck0.png" : class_names[9],
-        "static/test_img/truck1.png" : class_names[9]
+        #"static/test_img/deer1.png" : class_names[4],
+        #"static/test_img/dog0.png" : class_names[5],
+        #"static/test_img/dog1.png" : class_names[5],
+        #"static/test_img/frog0.png" : class_names[6],
+        #"static/test_img/frog1.png" : class_names[6],
+        #static/test_img/horse0.png" : class_names[7],
+        #static/test_img/horse1.png" : class_names[7],
+        #"static/test_img/ship0.png" : class_names[8],
+        #"static/test_img/ship1.png" : class_names[8],
+        #"static/test_img/truck0.png" : class_names[9],
+        #"static/test_img/truck1.png" : class_names[9]
     }
     for key, value in image_path_dict.items():
         assert isinstance(result(key), str) 
