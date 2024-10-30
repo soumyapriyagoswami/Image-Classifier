@@ -1,7 +1,8 @@
 """This module handles the testing of the functionality of the system."""
 import warnings
 from result import result
-from app import preprocess_image
+from model_creation import model_creation
+from app import preprocess_image, app
 
 # Suppress specific warning
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -48,3 +49,21 @@ def test_dynamic_result_test():
     }
     for key, _value in image_path_dict.items():
         assert isinstance(result(key), str)
+
+
+def test_integration_valid_image_happy_path():
+    """This test will correctly predict an image"""
+    # Create the model
+    app.test_client()
+    model_creation()
+
+    #Rest to save an image
+    test_image_path = "static/test_img/plane0.png" 
+    with open(test_image_path, "rb") as img_file:
+        data = {
+            "file": (img_file, "plane0.png")
+        }
+        response = self.client.post("/", data=data, content_type="multipart/form-data")
+
+    # test the image
+    assert isinstance(result(key), str)
