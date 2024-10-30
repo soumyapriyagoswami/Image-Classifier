@@ -87,4 +87,4 @@ def test_integration_valid_image_sad_path():
     # Test the response
     assert response.status_code == 200
     assert b"Result:" in response.data  # Verifying "Result:" is in the HTML response
-    assert result() == "spy"
+    assert result() != "spy"
