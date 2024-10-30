@@ -63,9 +63,10 @@ def test_integration_valid_image_happy_path():
         data = {
             "file": (img_file, "plane0.png")
         }
-        response = app.post("/", data=data, content_type="multipart/form-data")
+        response = client.post("/", data=data, content_type="multipart/form-data")
 
-    # test the image
+    # Test the response
     assert response.status_code == 200
-    assert b"result" in response.data  # Check for 'result' in the response
+    assert b"Result:" in response.data  # Verifying "Result:" is in the HTML response
+    assert isinstance(result(key), str)
     
