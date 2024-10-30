@@ -54,16 +54,18 @@ def test_dynamic_result_test():
 def test_integration_valid_image_happy_path():
     """This test will correctly predict an image"""
     # Create the model
-    app.test_client()
+    client = app.test_client()
+    client.testing = True
     model_creation()
 
     #Rest to save an image
-    test_image_path = "static/test_img/plane0.png" 
-    with open(test_image_path, "rb") as img_file:
+    with open("static/test_img/plane0.png", "rb") as img_file:
         data = {
             "file": (img_file, "plane0.png")
         }
-        response = self.client.post("/", data=data, content_type="multipart/form-data")
+        response = app.post("/", data=data, content_type="multipart/form-data")
 
     # test the image
-    assert isinstance(result(key), str)
+    assert response.status_code == 200
+    assert b"result" in response.data  # Check for 'result' in the response
+    
