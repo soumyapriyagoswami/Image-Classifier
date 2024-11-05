@@ -10,6 +10,12 @@ jobs:
         python-version: ["3.12.1"]
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 
+    - uses: sonarsource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ sqp_f55fbcbe77d41314e76e9af4235f0d07b5ef96ed }}
+        SONAR_HOST_URL: ${{ http://localhost:9000 }}
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
@@ -28,3 +34,4 @@ jobs:
     - name: Automated Testing
       run: |  
         coverage run -m pytest  -v -s
+
