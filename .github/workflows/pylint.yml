@@ -14,8 +14,8 @@ jobs:
         fetch-depth: 0 
     - uses: sonarsource/sonarqube-scan-action@master
       env:
-        SONAR_TOKEN: ${{ secrets.sqp_f55fbcbe77d41314e76e9af4235f0d07b5ef96ed }}
-        SONAR_HOST_URL: ${{ secrets.http://localhost:9000 }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
