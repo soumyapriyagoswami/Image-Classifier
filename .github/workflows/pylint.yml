@@ -11,7 +11,7 @@ jobs:
     services:
       sonarqube:
         image: sonarqube:10.6-community
-        options: "--memory=2g --cpus=2.0 --health-start-period=300s -p 9000:9000 -e GITHUB_ACTIONS=true -e CI=true"
+        options: "--memory=2g --cpus=2.0 --health-start-period=300s -p 9001:9000 -e GITHUB_ACTIONS=true -e CI=true"
         ports:
           - 9000:9000
     steps:
