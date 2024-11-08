@@ -37,6 +37,8 @@ def preprocess_image(img_path):
 @app.route("/", methods=["GET", "POST"])
 def index():
     """RESTful application that serves as a GUI for a user to check images to the trained model"""
+    if request.method not in ["GET", "POST"]:
+        abort(405)  # 405 Method Not Allowed
     if request.method == "POST":
         # Handle the uploaded image
         file = request.files["file"]
