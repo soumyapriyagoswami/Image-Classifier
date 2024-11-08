@@ -7,28 +7,30 @@ from app import preprocess_image, app
 # Suppress specific warning
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
+IMAGE_TEST = "static/test_img/plane0.png"
+
 def test_preprocess_image_height():
     """This test case handles loading an image, checking if the new height is equal"""
-    assert preprocess_image("static/test_img/plane0.png").shape[1] == 32
+    assert preprocess_image(IMAGE_TEST).shape[1] == 32
 
 def test_preprocess_image_width():
     """loads an image.Checks if the new width is equal to the expected value."""
-    assert preprocess_image("static/test_img/plane0.png").shape[2] == 32
+    assert preprocess_image(IMAGE_TEST).shape[2] == 32
 
 def test_preprocess_image_return_type():
     """This test case handles loading an image and checking the return type."""
-    assert preprocess_image("static/test_img/plane0.png") is not None
+    assert preprocess_image(IMAGE_TEST) is not None
 
 def test_result_return_type():
     """This test case handles entire functionality of result and checks the return type"""
-    assert result("static/test_img/plane0.png") is not None
+    assert result(IMAGE_TEST) is not None
 
 def test_dynamic_result_test():
     """This test case is a dynamic test
     testing two of each image to ensure the model is trained and predicting correctly"""
     class_names = ["plane", "car", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
     image_path_dict = {
-        "static/test_img/plane0.png" : class_names[0],
+        IMAGE_TEST : class_names[0],
         "static/test_img/car0.png" : class_names[1],
         "static/test_img/car1.png" : class_names[1],
         "static/test_img/bird0.png" : class_names[2],
@@ -59,7 +61,7 @@ def test_integration_valid_image_happy_path():
     model_creation()
 
     #Rest to save an image
-    with open("static/test_img/plane0.png", "rb") as img_file:
+    with open(IMAGE_TEST, "rb") as img_file:
         data = {
             "file": (img_file, "plane0.png")
         }
