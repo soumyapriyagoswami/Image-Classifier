@@ -6,6 +6,9 @@ import cv2 as cv
 from keras import models
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+crsf.init_app(app)
+app.debug = False
 
 # Load the pre-trained model
 model = models.load_model("image_classifier.h5")
@@ -58,4 +61,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
