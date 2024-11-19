@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 import numpy as np
 import cv2 as cv
 from keras import models
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 csrf = CSRFProtect()
