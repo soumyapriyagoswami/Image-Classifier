@@ -1,8 +1,5 @@
 """This module handles the testing of the functionality of the system."""
-import warnings
 from result import result
-from model_creation import model_creation
-from app import preprocess_image, app
 import pytest
 
 IMAGE_TEST = "static/test_img/plane0.png"
