@@ -1,14 +1,6 @@
 name: Image-Classifer-Pipeline
 
 on: [push]
-
-
-
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-#              WE NEED TO FIGURE OUT ARTIFACTS AND NOT REINSTALLING DEPEDENCIES EVERY TIME
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 jobs:
   
   pylint_precommit:
@@ -24,17 +16,18 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-  
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install numpy opencv-python matplotlib tensorflow flask pylint pytest coverage flask-wtf
+        pip install numpy opencv-python matplotlib tensorflow flask pylint pytest coverage flask-wtf pre-commit
+    - name: Install pre-commit hooks
+      run: |
+        pre-commit install
     - name: Linting
       run: |
         pylint $(git ls-files '*.py')
       continue-on-error: false
-      #also need to add precommit, we didn't do this for some reason?
-  
+
   unit-tests:
     runs-on: ubuntu-latest
     needs: pylint_precommit
@@ -60,8 +53,11 @@ jobs:
       run: |  
         coverage run -m pytest -v -s unit_test.py
       continue-on-error: false
-
-      # will find the right place for it later
+    - name: Upload Trained Model
+      uses: actions/upload-artifact@v3
+      with:
+        name: trained-model
+        path: path/to/trained/model
     - name: Upload .whl Artifact
       uses: actions/upload-artifact@v3
       with:
@@ -82,14 +78,15 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-  
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install numpy opencv-python matplotlib tensorflow flask pylint pytest coverage flask-wtf
-    - name: Training Model
-      run: |
-        python model_creation.py
+    - name: Download Trained Model
+      uses: actions/download-artifact@v3
+      with:
+        name: trained-model
+        path: ./artifact
     - name: Running Happy & Sad Path Tests
       run: |  
         coverage run -m pytest -v -s happy_sad_test.py
@@ -109,14 +106,15 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-  
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install numpy opencv-python matplotlib tensorflow flask pylint pytest coverage flask-wtf
-    - name: Training Model
-      run: |
-        python model_creation.py
+    - name: Download Trained Model
+      uses: actions/download-artifact@v3
+      with:
+        name: trained-model
+        path: ./artifact
     - name: Running Acceptance Tests
       run: |  
         coverage run -m pytest -v -s acceptance_test.py
