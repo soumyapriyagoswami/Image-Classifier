@@ -1,5 +1,6 @@
 """This module handles the testing of the functionality of the system."""
 import pytest
+import cv2
 from result import result
 
 
