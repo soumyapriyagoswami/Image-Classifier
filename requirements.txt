@@ -1,0 +1,10 @@
+numpy
+opencv-python
+matplotlib
+tensorflow
+flask
+pylint
+pytest
+coverage
+flask-wtf
+pre-commit
