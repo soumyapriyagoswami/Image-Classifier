@@ -2,6 +2,7 @@
 import warnings
 from result import result
 from model_creation import model_creation
+from app import app
 
 # Suppress specific warning
 warnings.filterwarnings("ignore", category=DeprecationWarning)

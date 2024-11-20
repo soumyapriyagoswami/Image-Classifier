@@ -1,7 +1,6 @@
 """This module handles the unit testing of the functionality of the system."""
 import warnings
 from result import result
-from model_creation import model_creation
 from app import preprocess_image
 
 # Suppress specific warning
