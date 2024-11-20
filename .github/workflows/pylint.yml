@@ -65,7 +65,7 @@ jobs:
     - name: Upload .whl Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: model-wheel
+        name: image-classifier-wheel
         path: artifact/*.whl
   
   happy-sad-path-tests:
@@ -129,7 +129,7 @@ jobs:
     - name: Download .whl Artifact
       uses: actions/download-artifact@v3
       with:
-        name: model-wheel
+        name: image-classifier-wheel
         path: ./artifact  # Directory where the .whl file will be downloaded
     - name: Install .whl file
       run: |
