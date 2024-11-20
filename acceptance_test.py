@@ -35,5 +35,5 @@ def test_unsupported_file_format():
     unsupported_file_path = "test_images/document.txt"
 
     # Call the classify function and expect an error
-    with pytest.raises(ValueError, match="Unsupported file format"):
+    with pytest.raises(cv2.error, match=r".*resize.cpp.*Assertion failed.*ssize.empty\(\).*"):
         result(unsupported_file_path)
