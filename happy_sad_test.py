@@ -25,7 +25,8 @@ def test_integration_valid_image_happy_path():
     #Rest to save an image
     with open(IMAGE_TEST, "rb") as img_file:
         data = {
-            "file": (img_file, "plane0.png")
+            "file": (img_file, "plane0.png"),
+            "csrf_token": csrf_token
         }
         response = client.post("/", data=data, content_type="multipart/form-data")
 
@@ -50,7 +51,8 @@ def test_integration_valid_image_sad_path():
     #Rest to save an image
     with open("static/test_img/spy.png", "rb") as img_file:
         data = {
-            "file": (img_file, "spy.png")
+            "file": (img_file, "spy.png"),
+            "csrf_token": csrf_token,
         }
         response = client.post("/", data=data, content_type="multipart/form-data")
 
