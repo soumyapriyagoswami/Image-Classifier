@@ -8,7 +8,7 @@ from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 csrf = CSRFProtect()
-crsf.init_app(app)
+csrf.init_app(app)
 app.debug = False
 
 # Load the pre-trained model
