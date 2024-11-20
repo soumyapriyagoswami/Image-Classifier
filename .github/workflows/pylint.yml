@@ -1,4 +1,4 @@
-name: Pylint
+name: Image-Classifer-Pipeline
 
 on: [push]
 
