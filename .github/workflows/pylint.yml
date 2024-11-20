@@ -26,8 +26,8 @@ jobs:
       run: |
         python model_creation.py
         
-  pre-commit:
-    runs-on: ubuntu-latest
+#  pre-commit:
+#    runs-on: ubuntu-latest
   
   pylint:
     runs-on: ubuntu-latest
