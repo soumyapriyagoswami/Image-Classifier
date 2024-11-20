@@ -27,28 +27,35 @@ jobs:
         python model_creation.py
         
   pre-commit:
-
+    runs-on: ubuntu-latest
   
   pylint:
+    runs-on: ubuntu-latest
+    steps:
     - name: Linting
       run: |
         pylint $(git ls-files '*.py')
       continue-on-error: false
   
   unit-tests:
+    runs-on: ubuntu-latest
+    steps:
     - name: Running Unit Tests
       run: |  
         coverage run -m pytest -v -s unit_test.py
       continue-on-error: false
   
   happy-sad-path-tests:
+    runs-on: ubuntu-latest
+    steps:
     - name: Running Happy & Sad Path Tests
       run: |  
         coverage run -m pytest -v -s happy_sad_test.py
       continue-on-error: false
   
   acceptance-tests:
+    runs-on: ubuntu-latest
+    steps:
       - name: Running Acceptance Tests
-      run: |  
-        coverage run -m pytest -v -s acceptance_test.py
-      continue-on-error: false
+        run: |  
+          coverage run -m pytest -v -s acceptance_test.py
