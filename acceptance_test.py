@@ -18,7 +18,7 @@ def test_upload_and_classify_images():
     actual = result(IMAGE_TEST)
 
     class_names = ["plane", "car", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
-    assert classification in class_names, f"Unexpected classification result: {classification}"
+    assert actual in class_names, f"Unexpected classification result: {actual}"
 
 
 #Gerkin Acceptance Test One
