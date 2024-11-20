@@ -16,6 +16,12 @@ def test_integration_valid_image_happy_path():
     client.testing = True
     model_creation()
 
+    # Fetch the CSRF token
+    response = client.get("/")
+    csrf_token = (
+        response.data.decode().split('name="csrf_token" value="')[1].split('"')[0]
+    )
+
     #Rest to save an image
     with open(IMAGE_TEST, "rb") as img_file:
         data = {
@@ -34,6 +40,12 @@ def test_integration_valid_image_sad_path():
     client = app.test_client()
     client.testing = True
     model_creation()
+
+    # Fetch the CSRF token
+    response = client.get("/")
+    csrf_token = (
+        response.data.decode().split('name="csrf_token" value="')[1].split('"')[0]
+    )
 
     #Rest to save an image
     with open("static/test_img/spy.png", "rb") as img_file:
