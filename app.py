@@ -1,6 +1,6 @@
 """Image Classification application trained on a CNN model that can be accessed from a browser"""
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort
 import numpy as np
 import cv2 as cv
 from keras import models

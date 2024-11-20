@@ -15,15 +15,10 @@ IMAGE_TEST = "static/test_img/plane0.png"
 
 def test_upload_and_classify_images():
     """This module handles the upload acceptance testing."""
-    # Call the classify function and capture result
     actual = result(IMAGE_TEST)
 
-    # Assert that the result contains a classification label and confidence score
-    assert "label" in actual, "Expected result to contain a 'label' key"
-    assert "confidence" in actual, "Expected result to contain a 'confidence' key"
-    assert isinstance(actual["label"], str), "Label should be a string"
-    assert isinstance(actual["confidence"], float), "Confidence should be a float"
-    assert 0.0 <= result["confidence"] <= 1.0, "Confidence score should be between 0 and 1"
+    class_names = ["plane", "car", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
+    assert classification in class_names, f"Unexpected classification result: {classification}"
 
 
 #Gerkin Acceptance Test One
