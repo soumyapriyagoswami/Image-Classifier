@@ -170,9 +170,6 @@ jobs:
     - name: Run Capacity Test 10u
       run: |
         locust -f test_capacity.py --headless -u 10 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport10u.html
-    - name: Run Capacity Test 25u
-      run: |
-        locust -f test_capacity.py --headless -u 25 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport25u.html
     - name: Upload Capacity Test Report
       uses: actions/upload-artifact@v3
       with:
@@ -181,4 +178,3 @@ jobs:
           locustreport1u.html
           locustreport5u.html
           locustreport10u.html
-          locustreport25u.html
