@@ -22,15 +22,17 @@ class WebsiteUser(HttpUser):
         """This function handles uploading an image"""
         # send a POST request to the prediction route with the test image file
         response = self.client.get("/")
-        print(response)
         csrf_token = (
-            response.data.decode().split('name="csrf_token" value="')[1].split('"')[0])
+            response.text.split('name="csrf_token" value="')[1].split('"')[0])
 
         with open(IMAGE_TEST, "rb") as img_file:
-            data = {"file": (img_file, "plane0.png"),
-                "csrf_token": csrf_token}
-            response = self.client.post("/", data=data, content_type="multipart/form-data")
+            data = {
+                "csrf_token": csrf_token
+            }
+            files = {
+                "file": ("plane0.png", img_file, "image/png")
+            }
+            response = self.client.post("/", data=data, files=files)
         assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
 
         assert b"Result:" in response.data  # Verifying "Result:" is in the HTML response
-        #assert result() in ["plane", "train"]
