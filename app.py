@@ -6,6 +6,8 @@ import cv2 as cv
 from keras import models
 from flask_wtf.csrf import CSRFProtect
 
+tf.compat.v1.enable_eager_execution()
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "this-is-a-secret-key"
 csrf = CSRFProtect()
