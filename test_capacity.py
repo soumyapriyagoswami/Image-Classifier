@@ -12,6 +12,8 @@ IMAGE_TEST = "static/test_img/plane0.png"
 
 class WebsiteUser(HttpUser):
     """This test class handles simulates one user"""
+    wait_time = between(2, 5)
+    
     @task
     def load_main(self):
         """This function handles getting the index page"""
