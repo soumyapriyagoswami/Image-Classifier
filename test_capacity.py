@@ -15,7 +15,7 @@ class WebsiteUser(HttpUser):
     @task
     def load_main(self):
         """This function handles getting the index page"""
-        response = self.client.get("/")
+        self.client.get("/")
 
     @task
     def predict_image_file(self):
@@ -28,7 +28,7 @@ class WebsiteUser(HttpUser):
 
         with open(IMAGE_TEST, "rb") as img_file:
             data = {"file": (img_file, "plane0.png"),
-                "csrf_token": self.csrf_token}
+                "csrf_token": csrf_token}
             response = self.client.post("/", data=data, content_type="multipart/form-data")
         assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
 
