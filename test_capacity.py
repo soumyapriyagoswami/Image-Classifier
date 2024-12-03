@@ -35,4 +35,7 @@ class WebsiteUser(HttpUser):
             data = {"file": (img_file, "plane0.png"),
                 "csrf_token": csrf_token}
             response = client.post("/", data=data, content_type="multipart/form-data")
-            assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
+        assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
+
+        assert b"Result:" in response.data  # Verifying "Result:" is in the HTML response
+        assert result() in ["plane", "train"]

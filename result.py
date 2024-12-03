@@ -12,7 +12,6 @@ def result(filename: str ="static/uploads/uploaded_image.png") -> str:
     """
     # Class names for CIFAR-10
     class_names = ["plane","car","bird","cat","deer","dog","frog","horse","ship","truck"]
-    tf.compat.v1.enable_eager_execution()
     # Load the pre-trained model
     model = models.load_model("image_classifier.h5")
     # Load and preprocess the image to make a prediction
