@@ -135,7 +135,7 @@ jobs:
   
   capacity-test:
     runs-on: ubuntu-latest
-    needs: unit-tests
+    needs: pylint_precommit           #change here
     strategy:
       matrix:
         python-version: ["3.12.1"]
@@ -163,7 +163,7 @@ jobs:
       run: python app.py &
     - name: Run Capacity Test
       run: |
-        locust -f test_capacity.py --headless -u 1 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport.html
+        locust -f test_capacity.py --headless -u 10 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport.html
     - name: Upload Capacity Test Report
       uses: actions/upload-artifact@v3
       with:
