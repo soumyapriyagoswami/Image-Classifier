@@ -16,7 +16,8 @@ class WebsiteUser(HttpUser):
     @task
     def load_main(self):
         """This function handles getting the index page"""
-        self.client.get("/")
+        response = self.client.get("/")
+        assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
 
     @task
     def predict_image_file(self):
