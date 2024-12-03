@@ -12,9 +12,9 @@ IMAGE_TEST = "static/test_img/plane0.png"
 
 class WebsiteUser(HttpUser):
     """This test class handles simulates one user"""
-    def __init__:
+    def __init__():
         self.csrf_token
-        
+
     @task
     def load_main(self):
         """This function handles getting the index page"""
