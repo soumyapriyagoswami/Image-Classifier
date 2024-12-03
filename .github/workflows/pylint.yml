@@ -161,7 +161,7 @@ jobs:
           python model_creation.py
     - name: Start Flask App
       run: python app.py &
-      - name: Run Capacity Test 1u
+    - name: Run Capacity Test 1u
       run: |
         locust -f test_capacity.py --headless -u 1 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport1u.html
     - name: Run Capacity Test 5u
