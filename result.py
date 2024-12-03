@@ -4,6 +4,7 @@ This module handles the prediction of the saved image and prints a string to con
 import numpy as np
 import cv2 as cv
 from keras import models
+import tensorflow as tf
 
 def result(filename: str ="static/uploads/uploaded_image.png") -> str:
     """
@@ -11,6 +12,7 @@ def result(filename: str ="static/uploads/uploaded_image.png") -> str:
     """
     # Class names for CIFAR-10
     class_names = ["plane","car","bird","cat","deer","dog","frog","horse","ship","truck"]
+    tf.compat.v1.enable_eager_execution()
     # Load the pre-trained model
     model = models.load_model("image_classifier.h5")
     # Load and preprocess the image to make a prediction
