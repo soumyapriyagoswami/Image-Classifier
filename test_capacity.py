@@ -1,3 +1,6 @@
+"""
+This module handles a capacity test for predicting images
+"""
 from __future__ import annotations
 
 import os
@@ -8,20 +11,25 @@ from locust import HttpUser, between, task
 
 from app import app
 
-process = None
+PROCESS = None
+
+IMAGE_TEST = "static/test_img/plane0.png"
 
 class WebsiteUser(HttpUser):
+    """This test class handles simulates one user"""
     @task
     def load_main(self):
+        """This function handles getting the index page"""
         self.client.get("/")
 
     @task
     def predict_image_file(self):
+        """This function handles uploading an image"""
         # Use a test image file
         if os.name == 'nt':  # for Windows
-            image_path = r'.\test_images\0\Sign 0 (21).jpeg'
+            image_path = IMAGE_TEST
         else:  # for Linux
-            image_path = './test_images/0/Sign 0 (21).jpeg'
+            image_path = IMAGE_TEST
 
         f = open(image_path, 'rb')
 
