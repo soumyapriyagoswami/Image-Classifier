@@ -135,7 +135,7 @@ jobs:
   
   capacity-test:
     runs-on: ubuntu-latest
-    needs: happy-sad-path-tests           
+    needs: happy-sad-path-tests
     strategy:
       matrix:
         python-version: ["3.12.1"]
