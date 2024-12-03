@@ -3,7 +3,7 @@ This module handles a capacity test for predicting images
 """
 from __future__ import annotations
 
-from locust import HttpUser, task #, between
+from locust import HttpUser, task, between
 #from app import app
 
 PROCESS = None
@@ -13,7 +13,6 @@ IMAGE_TEST = "static/test_img/plane0.png"
 class WebsiteUser(HttpUser):
     """This test class handles simulates one user"""
     wait_time = between(2, 5)
-    
     @task
     def load_main(self):
         """This function handles getting the index page"""
