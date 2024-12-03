@@ -12,25 +12,19 @@ IMAGE_TEST = "static/test_img/plane0.png"
 
 class WebsiteUser(HttpUser):
     """This test class handles simulates one user"""
-    def __init__():
-        self.csrf_token
-
     @task
     def load_main(self):
         """This function handles getting the index page"""
         response = self.client.get("/")
-        print(response)
-        self.csrf_token = (
-            response.data.decode().split('name="csrf_token" value="')[1].split('"')[0])
 
     @task
     def predict_image_file(self):
         """This function handles uploading an image"""
         # send a POST request to the prediction route with the test image file
-        #response = self.client.get("/")
-        #print(response)
-        #csrf_token = (
-        #    response.data.decode().split('name="csrf_token" value="')[1].split('"')[0])
+        response = self.client.get("/")
+        print(response)
+        csrf_token = (
+            response.data.decode().split('name="csrf_token" value="')[1].split('"')[0])
 
         with open(IMAGE_TEST, "rb") as img_file:
             data = {"file": (img_file, "plane0.png"),
