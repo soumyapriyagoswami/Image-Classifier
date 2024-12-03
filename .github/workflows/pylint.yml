@@ -161,11 +161,25 @@ jobs:
           python model_creation.py
     - name: Start Flask App
       run: python app.py &
-    - name: Run Capacity Test
+      - name: Run Capacity Test 1u
       run: |
-        locust -f test_capacity.py --headless -u 10 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport.html
+        locust -f test_capacity.py --headless -u 1 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport1u.html
+    - name: Run Capacity Test 5u
+      run: |
+        locust -f test_capacity.py --headless -u 5 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport5u.html
+        - name: Run Capacity Test 10u
+      run: |
+        locust -f test_capacity.py --headless -u 10 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport10u.html
+        - name: Run Capacity Test 25u
+      run: |
+        locust -f test_capacity.py --headless -u 25 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport25u.html
     - name: Upload Capacity Test Report
       uses: actions/upload-artifact@v3
       with:
         name: capacity-test-report
-        path: locustreport.html
+        path: |
+          locustreport1u.html
+          locustreport5u.html
+          locustreport10u.html
+          locustreport25u.html
+
