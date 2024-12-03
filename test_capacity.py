@@ -3,7 +3,7 @@ This module handles a capacity test for predicting images
 """
 from __future__ import annotations
 
-import os
+#import os
 #import time
 #from multiprocessing import Process
 
@@ -26,6 +26,6 @@ class WebsiteUser(HttpUser):
     def predict_image_file(self):
         """This function handles uploading an image"""
         # send a POST request to the prediction route with the test image file
-        with open(image_path, 'rb') as f:
+        with open(IMAGE_TEST, 'rb') as f:
             response = self.client.post('/prediction', files={'file': f})
             assert response.status_code == 200
