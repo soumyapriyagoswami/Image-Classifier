@@ -35,4 +35,4 @@ class WebsiteUser(HttpUser):
             response = self.client.post("/", data=data, files=files)
         assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
 
-        assert b"Result:" in response.text  # Verifying "Result:" is in the HTML response
+        assert "Result:" in response.text  # Verifying "Result:" is in the HTML response
