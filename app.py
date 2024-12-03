@@ -5,6 +5,7 @@ import numpy as np
 import cv2 as cv
 from keras import models
 from flask_wtf.csrf import CSRFProtect
+import tensorflow as tf
 
 tf.compat.v1.enable_eager_execution()
 
