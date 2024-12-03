@@ -4,12 +4,12 @@ This module handles a capacity test for predicting images
 from __future__ import annotations
 
 import os
-import time
-from multiprocessing import Process
+#import time
+#from multiprocessing import Process
 
-from locust import HttpUser, between, task
+from locust import HttpUser, task #, between
 
-from app import app
+#from app import app
 
 PROCESS = None
 
@@ -25,19 +25,7 @@ class WebsiteUser(HttpUser):
     @task
     def predict_image_file(self):
         """This function handles uploading an image"""
-        # Use a test image file
-        if os.name == 'nt':  # for Windows
-            image_path = IMAGE_TEST
-        else:  # for Linux
-            image_path = IMAGE_TEST
-
-        f = open(image_path, 'rb')
-
-        files = {
-            'file': ('the file', f, 'image/jpeg'),
-        }
-
         # send a POST request to the prediction route with the test image file
-        response = self.client.post('/prediction', files={'file': f})
-
-        f.close()
+        with open(image_path, 'rb') as f:
+            response = self.client.post('/prediction', files={'file': f})
+            assert response.status_code == 200
