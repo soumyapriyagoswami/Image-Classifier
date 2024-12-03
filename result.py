@@ -4,7 +4,6 @@ This module handles the prediction of the saved image and prints a string to con
 import numpy as np
 import cv2 as cv
 from keras import models
-import tensorflow as tf
 
 def result(filename: str ="static/uploads/uploaded_image.png") -> str:
     """
