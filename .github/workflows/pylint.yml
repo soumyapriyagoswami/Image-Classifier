@@ -167,10 +167,10 @@ jobs:
     - name: Run Capacity Test 5u
       run: |
         locust -f test_capacity.py --headless -u 5 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport5u.html
-        - name: Run Capacity Test 10u
+    - name: Run Capacity Test 10u
       run: |
         locust -f test_capacity.py --headless -u 10 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport10u.html
-        - name: Run Capacity Test 25u
+    - name: Run Capacity Test 25u
       run: |
         locust -f test_capacity.py --headless -u 25 -r 5 --host http://localhost:5000 --run-time 2m --html=locustreport25u.html
     - name: Upload Capacity Test Report
