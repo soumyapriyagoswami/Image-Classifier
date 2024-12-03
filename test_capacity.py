@@ -4,7 +4,7 @@ This module handles a capacity test for predicting images
 from __future__ import annotations
 
 from locust import HttpUser, task #, between
-from app import app
+#from app import app
 
 PROCESS = None
 
