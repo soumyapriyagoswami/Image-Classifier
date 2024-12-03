@@ -12,11 +12,12 @@ IMAGE_TEST = "static/test_img/plane0.png"
 
 class WebsiteUser(HttpUser):
     """This test class handles simulates one user"""
+    self.csrf_token;
     @task
     def load_main(self):
         """This function handles getting the index page"""
         response = self.client.get("/")
-        print(result)
+        print(response)
         self.csrf_token = (
             response.data.decode().split('name="csrf_token" value="')[1].split('"')[0])
 
